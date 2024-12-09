@@ -1,8 +1,9 @@
+from itertools import cycle
+
 with open("input.txt") as input_file:
     input_text = input_file.read().splitlines()
 
 guard_pos = (-1, -1)
-guard_dir = None
 obstacles = set()
 explored = set()
 num_rows = len(input_text)
@@ -12,32 +13,19 @@ for row_idx in range(num_rows):
         match input_text[row_idx][col_idx]:
             case "^":
                 guard_pos = (row_idx, col_idx)
-                guard_dir = "U"
-                explored.add(guard_pos)
             case "#":
                 obstacles.add((row_idx, col_idx))
-
+directions_cycle = cycle(["U", "R", "D", "L"])
+guard_dir = next(directions_cycle)
+movements = {"U": (-1, 0), "R": (0, 1), "D": (1, 0), "L": (0, -1)}
 while (0 <= guard_pos[0] < num_rows) and (0 <= guard_pos[1] < num_cols):
-    match guard_dir:
-        case "U":
-            if (guard_pos[0] - 1, guard_pos[1]) in obstacles:
-                guard_dir = "R"
-            else:
-                guard_pos = (guard_pos[0] - 1, guard_pos[1])
-        case "R":
-            if (guard_pos[0], guard_pos[1] + 1) in obstacles:
-                guard_dir = "D"
-            else:
-                guard_pos = (guard_pos[0], guard_pos[1] + 1)
-        case "D":
-            if (guard_pos[0] + 1, guard_pos[1]) in obstacles:
-                guard_dir = "L"
-            else:
-                guard_pos = (guard_pos[0] + 1, guard_pos[1])
-        case "L":
-            if (guard_pos[0], guard_pos[1] - 1) in obstacles:
-                guard_dir = "U"
-            else:
-                guard_pos = (guard_pos[0], guard_pos[1] - 1)
     explored.add(guard_pos)
+    next_move = (
+        guard_pos[0] + movements[guard_dir][0],
+        guard_pos[1] + movements[guard_dir][1],
+    )
+    if next_move in obstacles:
+        guard_dir = next(directions_cycle)
+    else:
+        guard_pos = next_move
 print(len(explored))

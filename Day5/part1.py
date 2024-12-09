@@ -15,7 +15,7 @@ for row in input_text:
         for num in nums:
             if num in cant_see:
                 break
-            cant_see = cant_see | cant_have_after[num]
+            cant_see |= cant_have_after[num]
         else:
             total += nums[(len(nums) - 1) // 2]
 print(total)
