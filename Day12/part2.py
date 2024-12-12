@@ -49,10 +49,6 @@ while plots_remaining_to_consider:
                     v_fence_gaps.add(fence_location)
                 else:
                     h_fence_gaps.add(fence_location)
-    top_fences = set(explored) - h_fence_gaps
-    bottom_fences = {(row + 1, col) for row, col in explored} - h_fence_gaps
-    left_fences = set(explored) - v_fence_gaps
-    right_fences = {(row, col + 1) for row, col in explored} - v_fence_gaps
     sides = 0
     for _, _, orientation, row_offset, col_offset in movements:
         fences_used = {
