@@ -3,7 +3,8 @@ Here is a repo of my solutions to [Advent of Code](https://adventofcode.com) 202
 
 ```
     --------Part 1---------   --------Part 2--------
-Day       Time    Rank  Score       Time   Rank  Score
+Day     Time    Rank  Score       Time   Rank  Score
+12  00:16:38    1582      0   00:46:48   1316      0
 11  00:08:59    1894      0   00:15:15    844      0
 10  00:20:52    3179      0   00:24:32   2907      0
 9   00:26:08    3096      0   01:22:50   3961      0
