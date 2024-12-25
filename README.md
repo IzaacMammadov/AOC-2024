@@ -4,6 +4,7 @@ Here is a repo of my solutions to [Advent of Code](https://adventofcode.com) 202
 ```
     --------Part 1---------   --------Part 2--------
 Day     Time    Rank  Score       Time   Rank  Score
+25  06:02:24   10945      0   06:03:39   7045      0
 24  08:38:04   13733      0   09:51:09   5389      0
 23      >24h   19758      0       >24h  17342      0
 22  06:54:08   12077      0   12:25:49  12454      0
